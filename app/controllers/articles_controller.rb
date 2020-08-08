@@ -14,11 +14,21 @@ class ArticlesController < ApplicationController
   end
   
   def destroy
+    @article.destroy
+    flash[:success] = 'メッセージを削除しました。'
+    redirect_back(fallback_location: root_path)
   end
 
   private
 
   def article_params
     params.require(:article).permit(:text).permit(:content)
+  end
+  
+  def correct_user
+    @article = current_user.articles.find_by(id: params[:id])
+    unless @article
+      redirect_to root_url
+    end
   end
 end
