@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
    before_action :require_user_logged_in
+   before_action :correct_user, only: [:destroy]
 
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
       flash[:success] = 'メッセージを投稿しました。'
-      redirect_to root_url
+      redirect_to root_path
     else
       @articles = current_user.articles.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
@@ -22,7 +23,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:text).permit(:content)
+    params.require(:article).permit(:title, :text)
   end
   
   def correct_user

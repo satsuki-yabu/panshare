@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @user = User.find(params[:id])
+    @users = User.order(id: :desc).page(params[:page]).per(25)
   end
 
   def show
