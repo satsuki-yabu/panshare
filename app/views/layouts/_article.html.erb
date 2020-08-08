@@ -1,0 +1,16 @@
+<ul class="list-unstyled">
+  <% articles.each do |micropost| %>
+    <li class="media mb-3">
+      <img class="mr-2 rounded" src="<%= gravatar_url(article.user, { size: 50 }) %>" alt="">
+      <div class="media-body">
+        <div>
+          <%= link_to article.user.name, user_path(article.user) %> <span class="text-muted">posted at <%= article.created_at %></span>
+        </div>
+        <div>
+          <p><%= article.content %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate articles %>
+</ul>
