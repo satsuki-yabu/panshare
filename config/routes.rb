@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
+
+  post 'guest', to: 'guest_sessions#create'
+  
   get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :create]
   

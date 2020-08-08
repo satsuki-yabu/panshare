@@ -18,8 +18,10 @@
       </div>
 
       <%= f.submit 'Log in', class: 'btn btn-primary btn-block' %>
+      
     <% end %>
-
+    
+    <p>test user? <%= link_to 'テストユーザー', guest_path, method: :post, class: 'btn btn-success' %>
     <p>New user? <%= link_to 'Sign up now!', signup_path %></p>
   </div>
 </div>
