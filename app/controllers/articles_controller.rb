@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
    before_action :require_user_logged_in
    before_action :correct_user, only: [:destroy]
-
+   
+   
+  def new
+   @article = current_user.articles.build
+  end
+ 
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
@@ -23,7 +28,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :img)
   end
   
   def correct_user
