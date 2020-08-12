@@ -1,1 +1,6 @@
-<%= render 'layouts/form', article: @article %>
+<div class="d-flex align-items-center">
+    <h1>投稿</h1>
+</div>
+　
+<%= render 'form', article: @article, user: current_user%>
+

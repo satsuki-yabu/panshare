@@ -1,3 +1,20 @@
-<%= render 'layouts/article', article: @article, articles: @articles, users: @users %>
 
-
+<div class="container">
+  <div class="row center">
+    <% @articles.each do |article| %>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="thumbnail">
+             <h6 <%= link_to article.user.name, user_path(article.user) %>></h6>
+      <p><%= link_to article.title, article_path(article) %></p>
+      <p>
+      <% if article.img? %>
+      <%= image_tag article.img.url %>
+      <% else %>
+      <%= image_tag("/assets/default.png") %>
+      <% end %>
+      </p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

@@ -7,8 +7,7 @@
           <%= link_to article.user.name, user_path(article.user) %> <span class="text-muted">posted at <%= article.created_at %></span>
         </div>
         <div>
-          <p><%= article.title %></p>
-          <p><%= article.text %></p>
+          <p><%= link_to article.title, edit_article_path(article) %></p>
           <p>
             <% if article.img? %>
             <%= image_tag article.img.url %>

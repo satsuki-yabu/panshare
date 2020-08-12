@@ -1,12 +1,14 @@
 class ArticlesController < ApplicationController
    before_action :require_user_logged_in
-   before_action :correct_user, only: [:destroy]
+   skip_before_action :require_user_logged_in, only: [:show]
+   before_action :correct_user, only: [:edit, :update, :destroy]
    
    
   def new
    @article = current_user.articles.build
   end
- 
+  
+
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
@@ -15,9 +17,30 @@ class ArticlesController < ApplicationController
     else
       @articles = current_user.articles.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'toppages/index'
+      render 'articles/new'
     end
   end
+  
+  def show
+    @article = Article.find(params[:id])
+  end
+  
+  def edit
+    @article = Article.find_by(id: params[:id])
+  end
+  
+  def update
+    @article = Article.find_by(id: params[:id])
+    if @article.update(article_params)
+      flash[:success] = 'メッセージを編集しました'
+      redirect_to user_path(current_user)
+    else
+      flash[:success] = 'メッセージの編集に失敗しました'
+      render "edit"
+    end
+  end
+  
+  
   
   def destroy
     @article.destroy

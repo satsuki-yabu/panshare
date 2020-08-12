@@ -7,8 +7,19 @@ class User < ApplicationRecord
  has_secure_password
  
  has_many :articles
- has_many :favorites
+ has_many :favorites, dependent: :destroy
  has_many :fav_articles, through: :favorites, source: :article
  
-
+def favorite(article)
+    favorites.find_or_create_by(article_id: article.id)
+  end 
+    
+  def unfavorite(article)
+    favorite = favorites.find_by(article_id: article.id)
+    favorite.destroy if favorite
+  end
+  
+  def favorites?(article)
+  self.fav_articles.include?(article)
+  end
 end
