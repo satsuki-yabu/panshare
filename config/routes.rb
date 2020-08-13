@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   post 'guest', to: 'guest_sessions#create'
   
   get 'signup', to: 'users#new'
-  
-  resources :users, only: [:index, :show, :new, :create] do
+  resources :users, only: [:show, :create] do
    member do
     get :likes
    end

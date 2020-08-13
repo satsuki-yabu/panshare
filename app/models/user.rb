@@ -6,8 +6,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
  has_secure_password
  
- has_many :articles
- has_many :favorites, dependent: :destroy
+ has_many :articles, foreign_key: 'user_id', dependent: :destroy
+ has_many :favorites
  has_many :fav_articles, through: :favorites, source: :article
  
 def favorite(article)

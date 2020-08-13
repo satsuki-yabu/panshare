@@ -1,9 +1,15 @@
 class ImgUploader < CarrierWave::Uploader::Base
+  process resize_to_limit: [300, 300]
   # Include RMagick or MiniMagick support:
   #include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
+  if Rails.env == 'production'
+    storage :fog
+  else
+    storage :file
+  end
   storage :file
   # storage :fog
 
@@ -19,17 +25,19 @@ class ImgUploader < CarrierWave::Uploader::Base
   ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  end
+  
   #process :convert => 'jpg'
   # Process files as they are uploaded:
-  # process scale: [200, 300]
-  #process :resize_to_limit => [700, 700]
+  # process scale: [300, 300]
+  # process :resize_to_limit => [300, 300]
+  # end
   # def scale(width, height)
   #   # do something
-  # end
-  #version :thumb do
-    #process :resize_to_limit => [300, 300]
-  #end
+  end
+  
+  version :thumb do
+    process :resize_to_limit => [300, 300]
+  end
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [50, 50]
