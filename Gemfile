@@ -68,3 +68,6 @@ gem 'kaminari'
 
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
