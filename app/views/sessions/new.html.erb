@@ -16,11 +16,11 @@
         <%= f.label :password, 'Password' %>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
-      <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'log in', class: 'btn btn-primary btn-block' %>
     <% end %>
     
     <p>新規登録の方はこちら <%= link_to 'サインイン', signup_path %></p>
-    <p>お試しの方はこちら<%= link_to '簡単ログイン', guest_path, method: :post %>
+    <p>お試し利用の方はこちら<%= link_to '簡単ログイン', guest_path, method: :post %>
   </div>
   
   
