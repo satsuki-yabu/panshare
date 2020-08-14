@@ -3,8 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @articles = @user.articles.order(id: :desc).page(params[:page]).per(5)
-    counts(@user)
+    @articles = @user.articles.order(id: :desc).page(params[:page])
   end
 
   def new
@@ -16,7 +15,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
-      redirect_to users_path
+      redirect_to @user
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new
@@ -26,7 +25,6 @@ class UsersController < ApplicationController
   def likes
     @user = User.find(params[:id])
     @articles = @user.fav_articles.order(id: :desc).page(params[:page]).per(5)
-    counts(@user)
   end
 
   private

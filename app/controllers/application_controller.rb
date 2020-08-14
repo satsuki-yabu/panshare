@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def counts(user)
-    @count_articles = user.articles.count
-  end
-  
   def log_in(user)
     session[:user_id] = user.id
   end
