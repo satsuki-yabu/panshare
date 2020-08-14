@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @articles = @user.articles.order(id: :desc).page(params[:page])
+    @articles = @user.articles.order(id: :desc).page(params[:page]).per(5)
   end
 
   def new
