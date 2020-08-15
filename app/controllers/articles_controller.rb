@@ -12,11 +12,11 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      flash[:success] = 'メッセージを投稿しました。'
+      flash[:success] = '記事を投稿しました。'
       redirect_to root_path
     else
       @articles = current_user.articles.order(id: :desc).page(params[:page])
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
+      flash.now[:danger] = '記事の投稿に失敗しました。'
       render 'articles/new'
     end
   end
@@ -32,10 +32,10 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find_by(id: params[:id])
     if @article.update(article_params)
-      flash[:success] = 'メッセージを編集しました'
+      flash[:success] = '投稿記事を編集しました'
       redirect_to user_path(current_user)
     else
-      flash[:success] = 'メッセージの編集に失敗しました'
+      flash[:success] = '投稿記事の編集に失敗しました'
       render "edit"
     end
   end
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
   
   def destroy
     @article.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    flash[:success] = '投稿記事を削除しました。'
     redirect_back(fallback_location: root_path)
   end
 
