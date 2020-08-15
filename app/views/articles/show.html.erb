@@ -18,5 +18,13 @@
         </div>
       </div>
     </li>
+    <li>
+      <% if current_user == @article.user %>
+      <%= link_to "編集する", edit_article_path(@article), class: 'btn btn-success btn-sm' %>
+      <% end %>
+    </li>
+    <li>
+    <%= render 'favorites/favorite_button', article: @article, user: @user %>
+    </li>
 </ul>
- <%= render 'favorites/favorite_button', article: @article, user: @user %>
+

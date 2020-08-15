@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-   before_action :require_user_logged_in, only: [:index, :show, :likes]
+   before_action :require_user_logged_in, only: [:show, :likes]
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = current_user
     @articles = @user.articles.order(id: :desc).page(params[:page]).per(5)
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def likes
-    @user = User.find(params[:id])
+    @user = current_user
     @articles = @user.fav_articles.order(id: :desc).page(params[:page]).per(5)
   end
 

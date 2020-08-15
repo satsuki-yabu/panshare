@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   end
   
   def update
-    @article = Article.find_by(id: params[:id])
+    @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:success] = '投稿記事を編集しました'
       redirect_to user_path(current_user)
@@ -40,8 +40,7 @@ class ArticlesController < ApplicationController
     end
   end
   
-  
-  
+
   def destroy
     @article.destroy
     flash[:success] = '投稿記事を削除しました。'

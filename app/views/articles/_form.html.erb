@@ -2,8 +2,7 @@
   <aside>
     <%= form_with(model: article, multipart: true, local: true) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
-    <button type="submit" class="btn btn-outline-primary">登録</button>
-    
+  
       <div class="form-group">
         <%= f.label :title, 'タイトル' %>
         <%= f.text_field :title, class: 'form-control' %>
@@ -27,6 +26,8 @@
       
       <small id="submit-tip" class="form-text text-muted">
       </small>
+      
+       <button type="submit" class="btn btn-primary btn-block">登録</button>
       
     <% end %>
   </aside>

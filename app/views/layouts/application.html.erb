@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <html lang="ja">
   <head>
     <title>Panshare</title>
     <%= csrf_meta_tags %>
@@ -21,10 +22,10 @@
   <body>
     <%= render 'layouts/navbar' %>
     <div class="wrapper">
-    <div class="container">
-      <%= render 'layouts/flash_messages' %>
-      <%= yield %>
+      <div class="container">
+        <%= render 'layouts/flash_messages' %>
+        <%= yield %>
+      </div>
     </div>
   </body>
-  
 </html>

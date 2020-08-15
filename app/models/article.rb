@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   mount_uploader :img, ImgUploader
   
   has_many :favorites, foreign_key: "article_id", dependent: :destroy
-  has_many :users, through: :favorites
+  has_many :users, through: :favorites, source: :user
   
   validates :title, presence: true, length: { maximum: 50 }
   validates :text, presence: true, length: { maximum: 255 }
