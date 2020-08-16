@@ -1,24 +1,20 @@
-# README
+# Panshare
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
+ このwebアプリは、あなたのお気に入りのパン屋さんについて、他のユーザと情報共有することができます。
 
-Things you may want to cover:
+## function
+１．記事一覧表示機能  
+２．記事投稿機能  
+３．記事編集及び削除機能  
+４．ユーザ新規登録機能  
+５．ユーザログイン機能  
+６．簡単ログイン機能  
+７．お気に入り機能  
+８．画像投稿機能  
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Built with
+１．AWS cloud9  
+２．ruby on rails ruby 2.5.3  
+３．Bootstrap  
+４．heroku  
