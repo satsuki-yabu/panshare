@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @articles = @user.articles.order(id: :desc).page(params[:page]).per(5)
+    counts(@user)
   end
 
   def new
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   def likes
     @user = current_user
     @articles = @user.fav_articles.order(id: :desc).page(params[:page]).per(5)
+    counts(@user)
   end
 
   private

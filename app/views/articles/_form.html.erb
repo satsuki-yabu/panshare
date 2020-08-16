@@ -19,16 +19,17 @@
           </small>
       </div>
           
-      <div>
+      <div class="form-group">
         <%= f.label "画像をアップロード" %><br />
         <%= f.file_field :img, id: :article_img, class: "image" %>
+        <small id="submit-tip" class="form-text text-muted">
+        </small>
       </div>
       
-      <small id="submit-tip" class="form-text text-muted">
-      </small>
-      
-       <button type="submit" class="btn btn-primary btn-block">登録</button>
-      
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">登録</button>
+      </div>
+       
     <% end %>
   </aside>
 <% else %>
