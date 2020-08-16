@@ -10,9 +10,9 @@
           <p><%= @article.text %></p>
           <p>
             <% if @article.img? %>
-            <%= image_tag @article.img.url, class: "img-responsive center-block" %>
+            <%= image_tag @article.img.url, class: "img-responsive center-block", :alt => ""  %>
             <% else %>
-            <%= image_tag "/assets/icon_002640_256.png", class: "img-responsive center-block", size:'300x300' %>
+            <%= image_tag "/assets/icon_002640_256.png", class: "img-responsive center-block", size:'300x300', :alt => "" %>
             <% end %>
           </p>
         </div>
