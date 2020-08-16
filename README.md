@@ -17,4 +17,8 @@
 １．AWS cloud9  
 ２．ruby on rails ruby 2.5.3  
 ３．Bootstrap  
+<<<<<<< HEAD
 ４．heroku  
+=======
+４．heroku  
+>>>>>>> c66238331e7deed13e61880c4300301fb4a355dc
