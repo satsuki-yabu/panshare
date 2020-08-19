@@ -11,14 +11,11 @@
 ５．ユーザログイン機能  
 ６．簡単ログイン機能  
 ７．お気に入り機能  
-８．画像投稿機能  
+８．画像投稿機能
+９．ページネーション機能  
 
 ## Built with
 １．AWS cloud9  
 ２．ruby on rails ruby 2.5.3  
 ３．Bootstrap  
-<<<<<<< HEAD
 ４．heroku  
-=======
-４．heroku  
->>>>>>> c66238331e7deed13e61880c4300301fb4a355dc
